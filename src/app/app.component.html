@@ -1,0 +1,52 @@
+<div [ngClass]="{'bg-dark text-light': darkMode}">
+  <div class="d-flex" [ngClass]="{'toggled': menuToggle}" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right vh-100" id="sidebar-wrapper">
+      <div class="card text-light bg-dark">
+        <div class="card-body ">
+
+          <h3>Krish Anime</h3>
+
+
+
+        </div>
+      </div>
+      <div class="sidebar-heading text-dark">Yo!!</div>
+      <div class="list-group list-group-flush overflow-auto h-100">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/home']"
+            routerLinkActive="router-link-active">Recently Added</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['./popular']" routerLinkActive="router-link-active" >Popular</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['./details']" >Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;">Genres</a>
+          </li>
+          <hr class="my-0">
+          <li class="nav-item" *ngFor="let genre of genres">
+            <a class="nav-link" href="#">{{genre}}</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg border-bottom" style="background-color: white;">
+        <button class="btn" (click)="menuToggle=!menuToggle"> <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <a class="nav-link" [routerLink]="['/home']"> Krish Anime</a>
+      </nav>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+</div>
